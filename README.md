@@ -6,26 +6,26 @@ Demo for the session *Data Ethics in Education: Consent, Privacy, and the Datafi
 
 ## What it does
 
-1. Trains an early-warning model that predicts which students will fail or withdraw, using demographics and assessment performance from the first 60 days.
+1. Trains an early-warning model at **day 60** (about 23% into the course) that predicts which students will fail or withdraw. It uses demographics and assessments due and submitted by day 60, and only includes students still enrolled at that point.
 2. Audits the model's flag rate, false-alarm rate and hit rate for the most socioeconomically deprived students compared with everyone else.
 3. Tests "fairness through unawareness", which means deleting the sensitive attribute.
 4. Applies **Reweighing** (Kamiran & Calders, 2012), a pre-processing fairness method, and compares all three models.
 
-## Key result (test set, n = 9,751)
+## Key result (test set, n = 7,923)
 
 | Model | Accuracy | False-alarm rate: most deprived | False-alarm rate: others |
 |---|---|---|---|
-| Baseline (uses attribute) | 77.3% | 21.3% | 9.9% |
-| Attribute removed | 77.1% | 15.1% | 11.4% |
-| Reweighing | 77.2% | 12.4% | 11.3% |
+| Baseline (uses attribute) | 72.9% | 19.3% | 9.0% |
+| Attribute removed | 72.8% | 13.9% | 10.4% |
+| Reweighing | 72.5% | 13.3% | 10.7% |
 
 ## Run it
 
-Click the **Open in Colab** badge and choose *Runtime → Run all*. The data loads directly from this repository, so no setup is needed. To audit disability instead, set `PROTECTED = "disabled"`.
+Click the **Open in Colab** badge and choose *Runtime → Run all*. The data loads directly from this repository, so no setup is needed. Set `EARLY_DAY = 30` to see how an earlier warning widens the false-alarm gap, or `PROTECTED = "disabled"` to audit disability instead.
 
 ## Data
 
-Open University Learning Analytics Dataset (OULAD), a subset of its tables (`studentInfo`, `assessments`, `studentAssessment`), in `data/`.
+Open University Learning Analytics Dataset (OULAD), a subset of its tables (`studentInfo`, `studentRegistration`, `assessments`, `studentAssessment`), in `data/`.
 Kuzilek, J., Hlosta, M., & Zdrahal, Z. (2017). Open University Learning Analytics dataset. *Scientific Data*, 4, 170171. https://doi.org/10.1038/sdata.2017.171. Licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
 ## References
