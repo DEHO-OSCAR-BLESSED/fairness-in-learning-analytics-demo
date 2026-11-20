@@ -23,9 +23,15 @@ Demo for the session *Data Ethics in Education: Consent, Privacy, and the Datafi
 
 Click the **Open in Colab** badge and choose *Runtime → Run all*. The data loads directly from this repository, so no setup is needed. Set `EARLY_DAY = 30` to see how an earlier warning widens the false-alarm gap, or `PROTECTED = "disabled"` to audit disability instead.
 
+## Second notebook: fairness over the course
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DEHO-OSCAR-BLESSED/fairness-in-learning-analytics-demo/blob/main/fairness_over_time.ipynb)
+
+`fairness_over_time.ipynb` follows the same students (those who finished the module) from 10% to 100% of the course. At each point the model is retrained on the same training students and tested on the same test students, using only their records up to then. It tracks the three fairness gaps for six attributes, with bootstrap intervals, and asks why they change: what the model relies on, whether the groups behave differently, and how long false alarms last for each student.
+
 ## Data
 
-Open University Learning Analytics Dataset (OULAD), a subset of its tables (`studentInfo`, `studentRegistration`, `assessments`, `studentAssessment`), in `data/`.
+Open University Learning Analytics Dataset (OULAD), a subset of its tables (`studentInfo`, `studentRegistration`, `assessments`, `studentAssessment`, `courses`), in `data/`. `vle_daily.csv.gz` is the click table (`studentVle`) summed to daily totals per student, converted from the authors' [R package](https://github.com/jakubkuzilek/oulad).
 Kuzilek, J., Hlosta, M., & Zdrahal, Z. (2017). Open University Learning Analytics dataset. *Scientific Data*, 4, 170171. https://doi.org/10.1038/sdata.2017.171. Licensed [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
 
 ## References
